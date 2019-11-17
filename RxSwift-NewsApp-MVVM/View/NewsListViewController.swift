@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import Keys
 
-class NewsListViewController: UIViewController {
+class NewsListViewController: UIViewController, UITableViewDelegate {
 
     private var viewModel = NewsListViewModel()
     private var disposeBag = DisposeBag()
@@ -18,7 +18,6 @@ class NewsListViewController: UIViewController {
     @IBOutlet weak var newsListTableView: UITableView! {
         didSet {
             newsListTableView.delegate = self
-            newsListTableView.dataSource = self
             newsListTableView.register(NewsInfoCell.nib(), forCellReuseIdentifier: NewsInfoCell.identifier)
             newsListTableView.tableFooterView = UIView()
         }
@@ -26,28 +25,26 @@ class NewsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // binding
+        bind()
+        viewModel.requestDataSource()
+    }
+
+    private func bind() {
+        // 以下、UITableViewDelegateの準拠は必須
+        // viewModel側で保持しているデータソースとtableViewのDataSourceをbindする（UITableViewDataSource役）
         viewModel.articles
-            .asObservable()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                self?.newsListTableView.reloadData()
-            }).disposed(by: disposeBag)
+            .bind(to: newsListTableView.rx.items(cellIdentifier: NewsInfoCell.identifier,
+                                                 cellType: NewsInfoCell.self)) { (row, element, cell) in
+                                                    cell.setInfo(info: element)
+        }
+        .disposed(by: disposeBag)
 
-        viewModel.viewDidLoad()
+        // リスト表示している要素をタップに合わせて購読する（UITableViewDelegateのdidSelect役）
+        newsListTableView.rx
+            .modelSelected(Article.self)
+            .subscribe(onNext:  { article in
+                print("Tapped Article Title: \(article.title)")
+            })
+            .disposed(by: disposeBag)
     }
 }
-
-extension NewsListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.articles.value.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NewsInfoCell.identifier, for: indexPath) as! NewsInfoCell
-        cell.setInfo(info: viewModel.articles.value[indexPath.row])
-        return cell
-    }
-}
-
-extension NewsListViewController: UITableViewDelegate {}

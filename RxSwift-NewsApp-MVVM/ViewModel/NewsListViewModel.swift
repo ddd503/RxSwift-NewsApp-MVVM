@@ -17,8 +17,8 @@ class NewsListViewModel {
     // 記事情報保持用
     var articles = BehaviorRelay<[Article]>(value: [])
 
-    // Input
-    func viewDidLoad() {
+    func requestDataSource() {
+        // ViewModelが保持した状態をもとにModelクラス(今回はURLRequestのExtension)にデータ取得を求めるかを判断する
         guard let url = URL(string: requestApiUrlString) else { return }
         URLRequest.load(resource: Resource<APIResponse>(url: url))
             .subscribe(onNext: { [weak self] response in
