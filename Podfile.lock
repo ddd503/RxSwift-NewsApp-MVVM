@@ -1,9 +1,11 @@
 PODS:
+  - Keys (1.0.1)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
   - RxSwift (4.5.0)
 
 DEPENDENCIES:
+  - Keys (from `Pods/CocoaPodsKeys`)
   - RxCocoa (~> 4.0)
   - RxSwift (~> 4.0)
 
@@ -12,10 +14,15 @@ SPEC REPOS:
     - RxCocoa
     - RxSwift
 
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
 SPEC CHECKSUMS:
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
 
-PODFILE CHECKSUM: 79531bc38998099cdd780a6045e56a0d4089f275
+PODFILE CHECKSUM: 2d3ef3115feebef553995fe3b4a52954fbac1969
 
 COCOAPODS: 1.8.3
