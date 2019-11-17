@@ -71,31 +71,20 @@
 		45F2037823811DFD00B42831 /* RxSwift-NewsApp-MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				45F2039A23812F0800B42831 /* Extension */,
 				45F2039723812A4900B42831 /* Model */,
 				45F20392238128CE00B42831 /* View */,
-				45F2038D2381268D00B42831 /* Controller */,
-				45F2037923811DFD00B42831 /* AppDelegate.swift */,
-				45F2037B23811DFD00B42831 /* SceneDelegate.swift */,
-				45F2038223811E0000B42831 /* Assets.xcassets */,
-				45F2038423811E0000B42831 /* LaunchScreen.storyboard */,
-				45F2038723811E0000B42831 /* Info.plist */,
+				45F2039D23814F4100B42831 /* ViewModel */,
+				45F2039A23812F0800B42831 /* Extension */,
+				45F2039E23814F7700B42831 /* Other */,
 			);
 			path = "RxSwift-NewsApp-MVVM";
-			sourceTree = "<group>";
-		};
-		45F2038D2381268D00B42831 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				45F2038E238126D500B42831 /* NewsListViewController.storyboard */,
-				45F20390238126FA00B42831 /* NewsListViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		45F20392238128CE00B42831 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				45F2038E238126D500B42831 /* NewsListViewController.storyboard */,
+				45F20390238126FA00B42831 /* NewsListViewController.swift */,
 				45F20393238128EC00B42831 /* NewsInfoCell.swift */,
 				45F20394238128EC00B42831 /* NewsInfoCell.xib */,
 			);
@@ -116,6 +105,25 @@
 				45F2039B23812F1C00B42831 /* URLRequest+Observable.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		45F2039D23814F4100B42831 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45F2039E23814F7700B42831 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				45F2037923811DFD00B42831 /* AppDelegate.swift */,
+				45F2037B23811DFD00B42831 /* SceneDelegate.swift */,
+				45F2038223811E0000B42831 /* Assets.xcassets */,
+				45F2038423811E0000B42831 /* LaunchScreen.storyboard */,
+				45F2038723811E0000B42831 /* Info.plist */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		54E8C978C5A8A88290B4A211 /* Frameworks */ = {
@@ -395,7 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = "RxSwift-NewsApp-MVVM/Info.plist";
+				INFOPLIST_FILE = "RxSwift-NewsApp-MVVM/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -414,7 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = "RxSwift-NewsApp-MVVM/Info.plist";
+				INFOPLIST_FILE = "RxSwift-NewsApp-MVVM/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
