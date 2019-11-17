@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import Keys
 
 class NewsListViewController: UIViewController, UITableViewDelegate {
 
