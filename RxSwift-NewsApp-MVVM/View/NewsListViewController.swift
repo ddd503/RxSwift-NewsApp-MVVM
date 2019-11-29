@@ -16,7 +16,6 @@ class NewsListViewController: UIViewController, UITableViewDelegate {
 
     @IBOutlet weak var newsListTableView: UITableView! {
         didSet {
-            newsListTableView.delegate = self
             newsListTableView.register(NewsInfoCell.nib(), forCellReuseIdentifier: NewsInfoCell.identifier)
             newsListTableView.tableFooterView = UIView()
         }
